@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="{{ url_for('static', filename='main.css') }}" rel="stylesheet" type="text/css" />
+<script src="{{url_for('static', filename='main.js')}}"></script>
+</head>
+<body>
+
+
+<div class="tab">
+  {% for name in data.keys() %}
+    <button class="tablinks" onclick="openCity(event, '{{name}}')">{{name}}</button>
+  {% endfor %}
+</div>
+{% for name in data.keys() %}
+<div id="{{name}}" class="tabcontent">
+  <h3>{{name}}</h3>
+  <table>
+    <tr>
+      <th>Best Buys</th>
+    </tr>
+    {% for stockname in data[name]['Buy'] %}
+      <tr>
+        <td>{{stockname}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  <br>
+  <table>
+    <tr>
+      <th>Best Sells</th>
+    </tr>
+    {% for stockname in data[name]['Sell'] %}
+      <tr>
+        <td>{{stockname}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endfor %}
+   
+</body>
+</html> 
