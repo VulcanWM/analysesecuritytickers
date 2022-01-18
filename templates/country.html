@@ -12,5 +12,13 @@
       <button class="tablinks" onclick="window.location.replace('https://tablepython.vulcanwm.repl.co/data/{{country}}')">{{country}}</button>
   {% endfor %}
 </div>
+{% for country in countries %}
+  {% if country == countryname %}
+    <h2>{{country}}</h2>
+    {% for time in times %}
+	    <li><a href="https://tablepython.vulcanwm.repl.co/data/{{country}}/{{time}}">{{time}}</a></li>
+    {% endfor %}
+  {% endif %}
+{% endfor %}
 </body>
 </html> 

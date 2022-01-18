@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="{{ url_for('static', filename='main.css') }}" rel="stylesheet" type="text/css" />
+<script src="{{url_for('static', filename='main.js')}}"></script>
+</head>
+<body>
+
+<div class="tab">
+  {% for country in countryorder %}
+      <button class="tablinks" onclick="window.location.replace('https://tablepython.vulcanwm.repl.co/data/{{country}}')">{{country}}</button>
+  {% endfor %}
+</div>
+{% for country in countries %}
+  {% if country == countryname %}
+    <h2>{{country}}</h2>
+    {% for time in times %}
+      <li><a href="https://tablepython.vulcanwm.repl.co/data/{{country}}/{{time}}">{{time}}</a></li>
+      {% if time == timename %}
+        <h3>{{time}}</h3>
+        <table>
+          <tr>
+            <th>Ticker</th>
+            <th>Name</th>
+            <th>Segment</th>
+            <th>Industry</th>
+            <th>MomentumInd3M</th>
+            <th>Positive3M</th>
+            <th>Negative3M</th>
+            <th>ID3M</th>
+            <th>Low</th>
+            <th>EquityAmount</th>
+            <th>CCY</th>
+            <th>P_E</th>
+            <th>AnnualDiviYield</th>
+            <th>EMA52-208Ratio</th>
+            <th>Average_P_E</th>
+          </tr>
+          {% for stock in alldata %}
+            {% if stock[2] == country and stock[1] == time %}
+              <tr>
+                <td>{{stock[0]}}</td>
+                <td>{{stock[-1]}}</td>
+                <td>{{stock[-2]}}</td>
+                <td>{{stock[-3]}}</td>
+                <td>{{stock[3]}}</td>
+                <td>{{stock[4]}}</td>
+                <td>{{stock[5]}}</td>
+                <td>{{stock[6]}}</td>
+                <td>{{stock[7]}}</td>
+                <td>{{stock[8]}}</td>
+                <td>{{stock[9]}}</td>
+                <td>{{stock[10]}}</td>
+                <td>{{stock[11]}}</td>
+                <td>{{stock[12]}}</td>
+                <td>{{stock[13]}}</td>
+              </tr>
+            {% endif %}
+          {% endfor %}
+        </table>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+</body>
+</html> 
