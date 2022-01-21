@@ -19,44 +19,42 @@
       <li><a href="https://tablepython.vulcanwm.repl.co/data/{{country}}/{{time}}">{{time}}</a></li>
       {% if time == timename %}
         <h3>{{time}}</h3>
-        <table>
+        <table id="myTable">
           <tr>
-            <th>Ticker</th>
-            <th>Name</th>
-            <th>Segment</th>
-            <th>Industry</th>
-            <th>MomentumInd3M</th>
-            <th>Positive3M</th>
-            <th>Negative3M</th>
-            <th>ID3M</th>
-            <th>Low</th>
-            <th>EquityAmount</th>
-            <th>CCY</th>
-            <th>P_E</th>
-            <th>AnnualDiviYield</th>
-            <th>EMA52-208Ratio</th>
-            <th>Average_P_E</th>
+            <th onclick="sortTable(0)">Ticker</th>
+            <th onclick="sortTable(1)">Name</th>
+            <th onclick="sortTable(2)">Segment</th>
+            <th onclick="sortTable(3)">Industry</th>
+            <th onclick="sortTable(4)">MomentumInd3M</th>
+            <th onclick="sortTable(5)">Positive3M</th>
+            <th onclick="sortTable(6)">Negative3M</th>
+            <th onclick="sortTable(7)">ID3M</th>
+            <th onclick="sortTable(8)">Low</th>
+            <th onclick="sortTable(9)">EquityAmount</th>
+            <th onclick="sortTable(10)">CCY</th>
+            <th onclick="sortTable(11)">P_E</th>
+            <th onclick="sortTable(12)">AnnualDiviYield</th>
+            <th onclick="sortTable(13)">EMA52-208Ratio</th>
+            <th onclick="sortTable(14)">Average_P_E</th>
           </tr>
           {% for stock in alldata %}
-            {% if stock[2] == country and stock[1] == time %}
-              <tr>
-                <td>{{stock[0]}}</td>
-                <td>{{stock[-1]}}</td>
-                <td>{{stock[-2]}}</td>
-                <td>{{stock[-3]}}</td>
-                <td>{{stock[3]}}</td>
-                <td>{{stock[4]}}</td>
-                <td>{{stock[5]}}</td>
-                <td>{{stock[6]}}</td>
-                <td>{{stock[7]}}</td>
-                <td>{{stock[8]}}</td>
-                <td>{{stock[9]}}</td>
-                <td>{{stock[10]}}</td>
-                <td>{{stock[11]}}</td>
-                <td>{{stock[12]}}</td>
-                <td>{{stock[13]}}</td>
-              </tr>
-            {% endif %}
+            <tr>
+              <td>{{stock[0]}}</td>
+              <td>{{stock[-1]}}</td>
+              <td>{{stock[-2]}}</td>
+              <td>{{stock[-3]}}</td>
+              <td>{{stock[3]}}</td>
+              <td>{{stock[4]}}</td>
+              <td>{{stock[5]}}</td>
+              <td>{{stock[6]}}</td>
+              <td>{{stock[7]}}</td>
+              <td>{{stock[8]}}</td>
+              <td>{{stock[9]}}</td>
+              <td>{{stock[10]}}</td>
+              <td>{{stock[11]}}</td>
+              <td>{{stock[12]}}</td>
+              <td>{{stock[13]}}</td>
+            </tr>
           {% endfor %}
         </table>
       {% endif %}

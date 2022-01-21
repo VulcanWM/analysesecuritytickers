@@ -12,7 +12,6 @@ def index():
 @app.route("/data")
 def dataroute():
   con = sqlite3.connect("sql.db")
-  alldata = []
   cur = con.cursor()
   times = []
   countries = []
@@ -21,15 +20,13 @@ def dataroute():
       countries.append(row[2])
     if row[1] not in times:
       times.append(row[1])
-    alldata.append(row)
   con.close()
   countryorder = ['Australia', 'Japan', 'India', 'Singapore', 'HongKong', 'GermanySwissAustria', 'RestOfEurope', 'UnitedKingdom', 'USA', 'Canada'] 
-  return render_template("data.html", countries=countries, times=times, alldata=alldata, countryorder=countryorder)
+  return render_template("data.html", countries=countries, times=times, countryorder=countryorder)
 
 @app.route("/data/<country>")
 def country(country):
   con = sqlite3.connect("sql.db")
-  alldata = []
   cur = con.cursor()
   times = []
   countries = []
@@ -38,10 +35,9 @@ def country(country):
       countries.append(row[2])
     if row[1] not in times:
       times.append(row[1])
-    alldata.append(row)
   con.close()
   countryorder = ['Australia', 'Japan', 'India', 'Singapore', 'HongKong', 'GermanySwissAustria', 'RestOfEurope', 'UnitedKingdom', 'USA', 'Canada'] 
-  return render_template("country.html", countries=countries, times=times, alldata=alldata, countryorder=countryorder, countryname=country)
+  return render_template("country.html", countries=countries, times=times, countryorder=countryorder, countryname=country)
 
 @app.route('/data/<country>/<thetime>')
 def countrytime(country, thetime):
@@ -55,10 +51,42 @@ def countrytime(country, thetime):
       countries.append(row[2])
     if row[1] not in times:
       times.append(row[1])
-    alldata.append(row)
+    if row[2] == country and row[1] == thetime:
+      alldata.append(row)
   con.close()
   countryorder = ['Australia', 'Japan', 'India', 'Singapore', 'HongKong', 'GermanySwissAustria', 'RestOfEurope', 'UnitedKingdom', 'USA', 'Canada'] 
   return render_template("countrytime.html", countries=countries, times=times, alldata=alldata, countryorder=countryorder, countryname=country, timename=thetime)
+
+# @app.route('/data/sort/<sortkey>/<country>/<thetime>')
+# def sortdata(sortkey, country, thetime):
+#   sorts = {"MomentumInd3M": 3, "Positive3M": 4, "Negative3M": 5, "ID3M": 6, "Low": 7, "EquityAmount": 8, "CCY": 9, "P_E": 10, "AnnualDiviYield": 11, "EMA52-208Ratio": 12, "Average_P_E": 13}
+#   if sortkey not in sorts.keys():
+#     return redirect(f"/data/{country}/{thetime}") 
+#   con = sqlite3.connect("sql.db")
+#   alldata = []
+#   cur = con.cursor()
+#   times = []
+#   countries = []
+#   for row in cur.execute('SELECT * FROM MomentumIndicator;'):
+#     if row[2] not in countries:
+#       countries.append(row[2])
+#     if row[1] not in times:
+#       times.append(row[1])
+#     if row[2] == country and row[1] == thetime:
+#       alldata.append(row)
+#   con.close()
+#   sortindex = sorts[sortkey]
+#   sortdict = {}
+#   newalldata = []
+#   for x in alldata:
+#     sortdict[x[0]] = x[sortindex]
+#   sortdict = sorted(sortdict.items(), key=lambda x: x[1])
+#   # for x in alldata:
+
+#   #   newalldata.insert()
+#   return str(sortdict)
+#   countryorder = ['Australia', 'Japan', 'India', 'Singapore', 'HongKong', 'GermanySwissAustria', 'RestOfEurope', 'UnitedKingdom', 'USA', 'Canada'] 
+#   return render_template("countrytime.html", countries=countries, times=times, alldata=alldata, countryorder=countryorder, countryname=country, timename=thetime)
 
 # @app.route("/data/<dataname>/<thedate>/<country>")
 # def datanameroute(dataname, thedate, country):
