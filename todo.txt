@@ -1,3 +1,4 @@
-- sort column
+- sort column arrows
+- dropdown instead of list
 - beautify
 - host

@@ -12,11 +12,33 @@ function sortTable(n) {
       y = rows[i + 1].getElementsByTagName("TD")[n];
       if (dir == "asc") {
         if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          for (let x = 0; x < 15; x++) {
+            var tableheader = document.getElementById("table" + x)
+            var headertext = tableheader.innerText
+            headertext = headertext.replace("↑", "")
+            headertext = headertext.replace("↓", "")
+            headertext = headertext.replace(" ", "")
+            tableheader.innerText = headertext
+          }
+          var realtableheader = document.getElementById("table" + n)
+          var realheadertext = realtableheader.innerText
+          realtableheader.innerText = realheadertext + " ↑"
           shouldSwitch= true;
           break;
         }
       } else if (dir == "desc") {
         if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          for (let x = 0; x < 15; x++) {
+            var tableheader = document.getElementById("table" + x)
+            var headertext = tableheader.innerText
+            headertext = headertext.replace("↑", "")
+            headertext = headertext.replace("↓", "")
+            headertext = headertext.replace(" ", "")
+            tableheader.innerText = headertext
+          }
+          var realtableheader = document.getElementById("table" + n)
+          var realheadertext = realtableheader.innerText
+          realtableheader.innerText = realheadertext + " ↓"
           shouldSwitch = true;
           break;
         }
