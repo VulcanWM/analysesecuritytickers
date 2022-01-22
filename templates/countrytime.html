@@ -4,6 +4,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="{{ url_for('static', filename='main.css') }}" rel="stylesheet" type="text/css" />
 <script src="{{url_for('static', filename='main.js')}}"></script>
+<meta name="author" content="VulcanWM">
+<meta name="description" content="Ticker information from {{countryname}} on {{timename}}">
 <title>{{countryname}} - {{timename}}</title>
 </head>
 <body>
@@ -13,11 +15,18 @@
       <button class="tablinks" onclick="window.location.replace('https://tablepython.vulcanwm.repl.co/data/{{country}}')">{{country}}</button>
   {% endfor %}
 </div>
+<div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Choose Time</button>
+  <div id="myDropdown" class="dropdown-content">
+  </div>
+</div>
 {% for country in countries %}
   {% if country == countryname %}
     <h2>{{country}}</h2>
     {% for time in times %}
-      <li><a href="https://tablepython.vulcanwm.repl.co/data/{{country}}/{{time}}">{{time}}</a></li>
+      <script>
+        addlinktodd("{{country}}", "{{time}}")
+      </script>
       {% if time == timename %}
         <h3>{{time}}</h3>
         <table id="myTable">
