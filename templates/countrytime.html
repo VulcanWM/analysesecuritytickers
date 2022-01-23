@@ -16,7 +16,7 @@
   {% endfor %}
 </div>
 <div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Choose Time</button>
+  <button onclick="myFunction()" class="dropbtn">Choose Date</button>
   <div id="myDropdown" class="dropdown-content">
   </div>
 </div>
@@ -29,44 +29,50 @@
       </script>
       {% if time == timename %}
         <h3>{{time}}</h3>
-        <table id="myTable">
-          <tr>
-            <th id="table0" onclick="sortTable(0)">Ticker</th>
-            <th id="table1" onclick="sortTable(1)">Name</th>
-            <th id="table2" onclick="sortTable(2)">Segment</th>
-            <th id="table3" onclick="sortTable(3)">Industry</th>
-            <th id="table4" onclick="sortTable(4)">MomentumInd3M</th>
-            <th id="table5" onclick="sortTable(5)">Positive3M</th>
-            <th id="table6" onclick="sortTable(6)">Negative3M</th>
-            <th id="table7" onclick="sortTable(7)">ID3M</th>
-            <th id="table8" onclick="sortTable(8)">Low</th>
-            <th id="table9" onclick="sortTable(9)">EquityAmount</th>
-            <th id="table10" onclick="sortTable(10)">CCY</th>
-            <th id="table11" onclick="sortTable(11)">P_E</th>
-            <th id="table12" onclick="sortTable(12)">AnnualDiviYield</th>
-            <th id="table13" onclick="sortTable(13)">EMA52-208Ratio</th>
-            <th id="table14" onclick="sortTable(14)">Average_P_E</th>
-          </tr>
-          {% for stock in alldata %}
+        <div class="table-wrapper">
+          <table id="fl-table">
+            <thead>
             <tr>
-              <td>{{stock[0]}}</td>
-              <td>{{stock[-1]}}</td>
-              <td>{{stock[-2]}}</td>
-              <td>{{stock[-3]}}</td>
-              <td>{{stock[3]}}</td>
-              <td>{{stock[4]}}</td>
-              <td>{{stock[5]}}</td>
-              <td>{{stock[6]}}</td>
-              <td>{{stock[7]}}</td>
-              <td>{{stock[8]}}</td>
-              <td>{{stock[9]}}</td>
-              <td>{{stock[10]}}</td>
-              <td>{{stock[11]}}</td>
-              <td>{{stock[12]}}</td>
-              <td>{{stock[13]}}</td>
+              <th id="table0" onclick="sortTable(0)">Ticker</th>
+              <th id="table1" onclick="sortTable(1)">Name</th>
+              <th id="table2" onclick="sortTable(2)">Segment</th>
+              <th id="table3" onclick="sortTable(3)">Industry</th>
+              <th id="table4" onclick="sortTable(4)">MomentumInd3M</th>
+              <th id="table5" onclick="sortTable(5)">Positive3M</th>
+              <th id="table6" onclick="sortTable(6)">Negative3M</th>
+              <th id="table7" onclick="sortTable(7)">ID3M</th>
+              <th id="table8" onclick="sortTable(8)">Low</th>
+              <th id="table9" onclick="sortTable(9)">EquityAmount</th>
+              <th id="table10" onclick="sortTable(10)">CCY</th>
+              <th id="table11" onclick="sortTable(11)">P_E</th>
+              <th id="table12" onclick="sortTable(12)">AnnualDiviYield</th>
+              <th id="table13" onclick="sortTable(13)">EMA52-208Ratio</th>
+              <th id="table14" onclick="sortTable(14)">Average_P_E</th>
             </tr>
-          {% endfor %}
-        </table>
+            </thead>
+            <tbody>
+            {% for stock in alldata %}
+              <tr>
+                <td>{{stock[0]}}</td>
+                <td>{{stock[-1]}}</td>
+                <td>{{stock[-2]}}</td>
+                <td>{{stock[-3]}}</td>
+                <td>{{stock[3]}}</td>
+                <td>{{stock[4]}}</td>
+                <td>{{stock[5]}}</td>
+                <td>{{stock[6]}}</td>
+                <td>{{stock[7]}}</td>
+                <td>{{stock[8]}}</td>
+                <td>{{stock[9]}}</td>
+                <td>{{stock[10]}}</td>
+                <td>{{stock[11]}}</td>
+                <td>{{stock[12]}}</td>
+                <td>{{stock[13]}}</td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
       {% endif %}
     {% endfor %}
   {% endif %}

@@ -1,3 +1,2 @@
-- dropdown instead of list
 - beautify
 - host

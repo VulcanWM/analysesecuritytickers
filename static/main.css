@@ -1,17 +1,41 @@
-body {
-  background-color: black;
-  color: white;
-  font-family: 'Roboto', sans-serif;
+:root {
+	--primary-color: #131524;
+	--primary-color-hover: #000000;
+	--secondary-color: #232742;
+	--tertiary-color: #525569;
+	--accent-color: #6b3dc7;
+	--accent-color-hover: #5b2abd;
+	--primary-text-color: #e6e7f1;
+	--secondary-text-color: #c1c4db;
+	--blue: #8C9EFF;
+	--green: #B9F6CA;
+	--red: #F44336;
+	--yellow-1: #FF8F00;
+	--yellow-2: #FFD740;
+	--yellow-3: #FFE57F;
+	--purple: #B388FF;
+	--pink: #FF80AB;
+	--cyan: #84FFFF;
+  --light-text-color: #e6e7f1;
+	--transition-buttons: 0.3s;
 }
 
+body {
+  background-color: var(--primary-color);
+  color: var(--primary-text-color);
+  font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+/* Style the tab */
 .tab {
   overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
+  background: var(--accent-color);
+  width: 100%
 }
 
 .tab button {
   background-color: inherit;
+  color: var(--light-text-color);
   float: left;
   border: none;
   outline: none;
@@ -22,12 +46,17 @@ body {
 }
 
 .tab button:hover {
-  background-color: #ddd;
+  background: var(--accent-color-hover);
 }
 
 .tab button.active {
-  background-color: #ccc;
+  background: var(--accent-color-hover);
 }
+
+.tab button:focus {
+  box-shadow: 0 0 8px 2px var(--accent-color);
+}
+
 
 .tabcontent {
   display: none;
@@ -41,18 +70,23 @@ body {
 
 table {
   border-collapse: collapse;
+  border-spacing: 0;
   width: 100%;
   font-size: 9px;
 }
 
 td, th {
-  border: 1px solid #dddddd;
+  border: 1px solid var(--primary-color-hover);
   text-align: left;
   padding: 8px;
 }
 
+tr:nthchild(odd) {
+  background-color: var(--secondary-color)
+}
+
 tr:nth-child(even) {
-  background-color: grey;
+  background-color: var(--tertiary-color);
 }
 
 a {
@@ -64,12 +98,9 @@ a:hover {
   color: rgb(136, 133, 133)
 }
 
-
-
-
 .dropbtn {
-  background-color: #3498DB;
-  color: white;
+  color: var(--light-text-color);
+  background-color: var(--accent-color);
   padding: 16px;
   font-size: 16px;
   border: none;
@@ -77,8 +108,9 @@ a:hover {
 }
 
 .dropbtn:hover, .dropbtn:focus {
-  background-color: #2980B9;
+  background: var(--accent-color-hover);
 }
+
 
 .dropdown {
   position: relative;
@@ -88,7 +120,7 @@ a:hover {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
+  background-color: var(--accent-color);
   min-width: 160px;
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -96,12 +128,14 @@ a:hover {
 }
 
 .dropdown-content a {
-  color: black;
+  color: var(--light-text-color);
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
 
-.dropdown a:hover {background-color: #ddd;}
+.dropdown a:hover {
+  background-color: var(--accent-color-hover);
+}
 
 .show {display: block;}

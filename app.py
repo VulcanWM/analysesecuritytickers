@@ -1,9 +1,7 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template
 import sqlite3
 
 app = Flask(__name__)
-
-data = {"UK": {"Buy": ['ukbuy1', 'ukbuy2', 'ukbuy3', 'ukbuy4', 'ukbuy5'], "Sell": ['uksell1', 'uksell2', 'uksell3', 'uksell4', 'uksell5']}, "Canada": {"Buy": ['canadabuy1', 'canadabuy2', 'canadabuy3', 'canadabuy4', 'canadabuy5'], "Sell": ['canadasell1', 'canadasell2', 'canadasell3', 'canadasell4', 'canadasell5']}, "USA": {"Buy": ['usabuy1', 'usabuy2', 'usabuy3', 'usabuy4', 'usabuy5'], "Sell": ['usasell1', 'usasell2', 'usasell3', 'usasell4', 'usasell5']}}
 
 @app.route("/")
 def index():
