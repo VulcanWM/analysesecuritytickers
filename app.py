@@ -1,11 +1,11 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 import sqlite3
 
 app = Flask(__name__)
 
 @app.route("/")
 def index():
-  return "Click <a href='/data'>here</a> for data"
+  return redirect('/data')
 
 @app.route("/data")
 def dataroute():

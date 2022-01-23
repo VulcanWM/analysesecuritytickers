@@ -1,10 +1,11 @@
 :root {
-	--primary-color: #131524;
+	/* --primary-color: #131524; */
+  --primary-color: #666699;
 	--primary-color-hover: #000000;
 	--secondary-color: #232742;
 	--tertiary-color: #525569;
-	--accent-color: #6b3dc7;
-	--accent-color-hover: #5b2abd;
+	--accent-color: #121212;
+	--accent-color-hover: #242323;
 	--primary-text-color: #e6e7f1;
 	--secondary-text-color: #c1c4db;
 	--blue: #8C9EFF;
@@ -17,6 +18,7 @@
 	--pink: #FF80AB;
 	--cyan: #84FFFF;
   --light-text-color: #e6e7f1;
+  /* --light-text-color: black; */
 	--transition-buttons: 0.3s;
 }
 
@@ -72,7 +74,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
-  font-size: 9px;
+  font-size: 10px;
 }
 
 td, th {
